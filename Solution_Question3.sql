@@ -13,7 +13,7 @@ DROP PROCEDURE IF EXISTS proc_order;
 DELIMITER $$
 CREATE PROCEDURE proc_order()
 BEGIN
-	/* Declare variables */
+/* Declare variables */
 	DECLARE v_customerid VARCHAR(10); -- CustomerID from the current row
     	DECLARE v_orderdate DATE; -- OrderDate from the current row
     	DECLARE v_orderid VARCHAR(14); -- OrderID from the current row
