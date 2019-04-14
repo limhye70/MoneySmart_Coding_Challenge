@@ -11,7 +11,7 @@ RESULT LINK:[RESULT_Question1.sql](https://github.com/limhye70/MoneySmart_Coding
 Write an SQL statement to find out which items are the most frequently being purchased together by the same user.(Could be in different Order) <br/>
 DATA LINK: [SampleOrders.csv](https://s3-ap-southeast-1.amazonaws.com/ms-data-coding-challenge/SampleOrders.csv) <br/>
 SOLUTION LINK:[Solution_Question2.sql](https://github.com/limhye70/MoneySmart_Coding_Challenge/blob/master/Solution_Question2.sql) <br/>
-RESULT LINK:[RESULT_Question3.sql](https://github.com/limhye70/MoneySmart_Coding_Challenge/blob/master/Result_Question3.JPG)
+RESULT LINK:[RESULT_Question2.sql](https://github.com/limhye70/MoneySmart_Coding_Challenge/blob/master/Result_Question2.JPG)
 
 ## Question 3
 Write an SQL statement to find out the most frequent date interval between orders from the same user. <br/>
