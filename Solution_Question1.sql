@@ -11,9 +11,9 @@ Write an SQL statement to find the total number of user sessions each page has e
 
 /* Return the answer of the question */
 SELECT 
-	Page_ID,
+    Page_ID,
     Visit_Date,
-	count(ID) AS Total_User_Sessions -- count the number of the rows of ID by Page_ID and Visit_Date 
-FROM `moneysmart`.`samplepageviews` -- `database`.`tablename`
+    count(ID) AS Total_User_Sessions -- count the number of the rows of ID by Page_ID & Visit_Date 
+FROM `moneysmart`.`samplepageviews` 
 GROUP BY Page_ID, Visit_Date 
 ORDER BY Page_ID        
