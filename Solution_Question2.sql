@@ -28,4 +28,4 @@ FROM (
 	    and t1.ProductID < t2.ProductID -- prevent from double counting. for example, include (A,B) but exclude (B,A).
     ) a
 GROUP by product_A,Product_B
-ORDER by Unique_User_Count DESC; -- show data from the top cross sell products
+ORDER by Unique_User_Count DESC; -- show data from the combinations of the top cross sell products
