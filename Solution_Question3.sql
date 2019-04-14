@@ -45,14 +45,14 @@ OPEN c1;
         
         /* Escape the loop when it is the last row */
         IF v_finished=1 THEN
-		LEAVE get_date;
+	    LEAVE get_date;
 	END IF;
         
         /*  Calculate the date interval between previous and current row */
         IF(v_customerid = old_customerid) THEN
-		SET v_datediffer = DATEDIFF(v_orderdate,old_orderdate);
+	    SET v_datediffer = DATEDIFF(v_orderdate,old_orderdate);
 	ELSE
-		SET v_datediffer = NULL;
+	    SET v_datediffer = NULL;
 	END IF;
 		
         /* Assign the values of the current row to the variables with the previous row */
@@ -61,7 +61,7 @@ OPEN c1;
 		
          /* Insert value into the temporary table created above */
         INSERT INTO `moneysmart`.`temp_output`
-		VALUES (v_customerid,v_datediffer);
+	    VALUES (v_customerid,v_datediffer);
 	
     /*End loop*/
     END LOOP get_date;
