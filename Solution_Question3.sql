@@ -8,8 +8,10 @@ Question3:
 Write an SQL statement to find out the most frequent date interval between orders from the same user.
 */
 
-USE `moneysmart`;
+USE `moneysmart`; -- prevent error 1604
+/*Create a procedure*/
 DROP PROCEDURE IF EXISTS proc_order;
+/* Change delimiter to $$ */
 DELIMITER $$
 CREATE PROCEDURE proc_order()
 BEGIN
@@ -81,6 +83,6 @@ END $$
 
 /* Execute the procedure */ 
 CALL proc_order() $$
-/* Change delimiter from $$ back to ';' */
+/* Change delimiter from $$ back to ; */
 DELIMITER ;
 
