@@ -1,7 +1,8 @@
 /*
 Note:
 - Version: MySQL 5.7
-- Data download link: https://s3-ap-southeast-1.amazonaws.com/ms-data-coding-challenge/SamplePageviews.csv
+- Data download link1: https://s3-ap-southeast-1.amazonaws.com/ms-data-coding-challenge/SamplePageviews.csv
+- Data download link2: https://s3-ap-southeast-1.amazonaws.com/ms-data-coding-challenge/SampleOrders.csv
 */
 
 /* 0 Settings */
