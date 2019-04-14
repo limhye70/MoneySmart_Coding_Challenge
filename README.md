@@ -1,5 +1,5 @@
 # Data Team Coding Challenge
-Repository for money smart coding challenge. If you would like to see how to create table and import data, please refer to [here](https://github.com/limhye70/MoneySmart_Coding_Challenge/blob/limhye70-patch-1/0_Create_Schema_Tables.sql) before reaching solution.
+Repository for money smart coding challenge. If you would like to see how to create table and import data, please refer to [here](https://github.com/limhye70/MoneySmart_Coding_Challenge/blob/limhye70-patch-1/0_Create_Schema_Tables.sql) before looking at the solution.
 
 ## Question 1
 Write an SQL statement to find the total number of user sessions each page has each day.(A user session is defined as continuous activity on a site where each activity is within 10 mins of each other.) <br/>
