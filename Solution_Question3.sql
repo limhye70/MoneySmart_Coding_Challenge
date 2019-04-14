@@ -13,8 +13,8 @@ DROP PROCEDURE IF EXISTS proc_order;
 DELIMITER $$
 CREATE PROCEDURE proc_order()
 BEGIN
-	/* Declare variables */
-	DECLARE v_customerid VARCHAR(10); -- CustomerID from the current row
+    /* Declare variables */
+    DECLARE v_customerid VARCHAR(10); -- CustomerID from the current row
     DECLARE v_orderdate DATE; -- OrderDate from the current row
     DECLARE v_orderid VARCHAR(14); -- OrderID from the current row
     DECLARE old_customerid VARCHAR(10) DEFAULT '*'; -- customerID from the previous row
@@ -23,35 +23,35 @@ BEGIN
     DECLARE v_finished INT DEFAULT 0; -- to escape the roop
     
     /* Declare cursor */
-	DECLARE c1 CURSOR FOR SELECT DISTINCT CustomerID, OrderID, OrderDate FROM `moneysmart`.`sampleorders` ORDER BY CustomerID, OrderDate, OrderID;
+    DECLARE c1 CURSOR FOR SELECT DISTINCT CustomerID, OrderID, OrderDate FROM `moneysmart`.`sampleorders` ORDER BY CustomerID, OrderDate, OrderID;
     /* Declare the following handler: When there is no more row below, assign 1 to v_finished */
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET v_finished=1;
     
     /* Create a temporary table to store the output from the loop below*/
     DROP TEMPORARY TABLE IF EXISTS `moneysmart`.`temp_output`;
-	CREATE TEMPORARY TABLE `moneysmart`.`temp_output` (
-		`customerid` VARCHAR(10) NOT NULL,
-		`datediff` INT NULL);
+    CREATE TEMPORARY TABLE `moneysmart`.`temp_output` (
+	`customerid` VARCHAR(10) NOT NULL,
+	`datediff` INT NULL);
     
 /* Open the cursor*/
 OPEN c1;
 	/* Create loop */
     get_date: LOOP
     
-		/* Fetch the first row */
+	/* Fetch the first row */
         FETCH c1 INTO v_customerid, v_orderid, v_orderdate;
         
         /* Escape the loop when it is the last row */
         IF v_finished=1 THEN
-			LEAVE get_date;
-		END IF;
+		LEAVE get_date;
+	END IF;
         
         /*  Calculate the difference of OrderDate between previous and current row */
         IF(v_customerid = old_customerid) THEN
-			SET v_datediffer = DATEDIFF(v_orderdate,old_orderdate);
-		ELSE
-			SET v_datediffer = NULL;
-		END IF;
+		SET v_datediffer = DATEDIFF(v_orderdate,old_orderdate);
+	ELSE
+		SET v_datediffer = NULL;
+	END IF;
 		
         /* Assign the values of the current row to the variables with the previous row */
         SET old_customerid = v_customerid;
@@ -59,23 +59,23 @@ OPEN c1;
 		
          /* Insert value into the temporary table created above */
         INSERT INTO `moneysmart`.`temp_output`
-			VALUES (v_customerid,v_datediffer);
+		VALUES (v_customerid,v_datediffer);
 	
-     /*End loop*/
-	END LOOP get_date;
+    /*End loop*/
+    END LOOP get_date;
     /*Close cursor*/
     CLOSE c1;
     
     /* Return the answer of the question */
-	SELECT 
-		concat(datediff, ' ' ,'days') AS Date_Interval_Since_Prev_Order, 
-		COUNT(*) AS Order_Count
-	FROM `moneysmart`.`temp_output`
-	WHERE datediff IS NOT NULL
-	GROUP BY datediff
-	ORDER BY Order_Count DESC
-	LIMIT 5 -- show top 5 of the most date intervals only
-	;
+    SELECT 
+	concat(datediff, ' ' ,'days') AS Date_Interval_Since_Prev_Order, 
+	COUNT(*) AS Order_Count
+    FROM `moneysmart`.`temp_output`
+    WHERE datediff IS NOT NULL
+    GROUP BY datediff
+    ORDER BY Order_Count DESC
+    LIMIT 5; -- show top 5 of the most date intervals only
+	
     
 END $$
 
