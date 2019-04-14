@@ -22,7 +22,7 @@ FROM (
 	    t1.ProductID AS Product_A,
 	    t2.ProductID AS Product_B
 	FROM `moneysmart`.`sampleorders` AS t1
-	    INNER JOIN `moneysmart`.`sampleorders` AS t2 ON t1.CustomerID = t2.CustomerID -- 
+	    INNER JOIN `moneysmart`.`sampleorders` AS t2 ON t1.CustomerID = t2.CustomerID 
 	/*include unique combinations only*/
         WHERE t1.ProductID <> t2.ProductID -- include rows only when Product_A <> Product_B
 	    and t1.ProductID < t2.ProductID -- prevent from double counting. for example, include (A,B) but exclude (B,A).
