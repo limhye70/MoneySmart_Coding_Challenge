@@ -8,10 +8,10 @@ SOLUTION LINK:
 
 ## Question 2
 Write an SQL statement to find out which items are the most frequently being purchased together by the same user.(Could be in different Order) <br/>
-DATA LINK: [SampleOrders.csv](https://s3-ap-southeast-1.amazonaws.com/ms-data-coding-challenge/SampleOrders.csv) <br/>
-SOLUTION LINK:
+DATA DOWNLOAD: [SampleOrders.csv](https://s3-ap-southeast-1.amazonaws.com/ms-data-coding-challenge/SampleOrders.csv) <br/>
+SOLUTION DOWNLOAD:
 
 ## Question 3
 Write an SQL statement to find out the most frequent date interval between orders from the same user. <br/>
-DATA LINK: [SampleOrders.csv](https://s3-ap-southeast-1.amazonaws.com/ms-data-coding-challenge/SampleOrders.csv) <br/>
-SOLUTION LINK:
+DATA DOWNLOAD: [SampleOrders.csv](https://s3-ap-southeast-1.amazonaws.com/ms-data-coding-challenge/SampleOrders.csv) <br/>
+SOLUTION DOWNLOAD:
