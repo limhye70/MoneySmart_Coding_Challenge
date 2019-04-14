@@ -21,7 +21,7 @@ BEGIN
     DECLARE v_orderid VARCHAR(14); -- OrderID from the current row
     DECLARE old_customerid VARCHAR(10) DEFAULT '*'; -- customerID from the previous row
     DECLARE old_orderdate DATE DEFAULT NULL; -- OrderDate from the previous row
-    DECLARE v_datediffer INT DEFAULT NULL; -- OrdrDate difference between previous and current row 
+    DECLARE v_datediffer INT DEFAULT NULL; -- the date interval between previous and current row 
     DECLARE v_finished INT DEFAULT 0; -- to escape the roop
     
     /* Declare cursor */
@@ -48,7 +48,7 @@ OPEN c1;
 		LEAVE get_date;
 	END IF;
         
-        /*  Calculate the difference of OrderDate between previous and current row */
+        /*  Calculate the date interval between previous and current row */
         IF(v_customerid = old_customerid) THEN
 		SET v_datediffer = DATEDIFF(v_orderdate,old_orderdate);
 	ELSE
