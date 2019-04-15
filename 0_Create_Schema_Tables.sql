@@ -10,7 +10,7 @@ Note:
 DROP DATABASE IF EXISTS `moneysmart`; 
 CREATE SCHEMA `moneysmart`; 
 
-/* 1 Create table and load data*/
+/* 1 Create table and load data */
 /* 1-1 Table: samplepageviews */
 
 /* Create a table*/
